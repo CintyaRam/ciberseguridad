@@ -1,0 +1,64 @@
+* {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    cursor: pointer;
+}
+
+.contenedor-imagen img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.modal {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .8);
+}
+
+.card {
+    cursor: pointer;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
+}
+
+.modal-nav button {
+    padding: 10px 20px;
+    background-color: cyan;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+.modal-nav {
+    width: 18rem;
+    display: flex;
+    justify-content: center;
+    gap: 7px;
+}
+
+.tarjeta-modal {
+    max-width: 90%;
+    height: 80%;
+    margin: auto;
+    margin-top: 20px;
+}
+

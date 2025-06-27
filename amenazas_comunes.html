@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amenazas Comunes 🔍</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
 </head>
 
 <body>
@@ -29,11 +30,56 @@
                 </div>
             </div>
         </nav>
-
-
     </header>
     <main>
+        <div class="container-fluid text-bg-secondary">
+            <h2 class="ts-3 pb-4 ps-3">¡Presiona sobre la amenaza para averiguar sobre ella!</h2>
+            <div class="container-fluid justify-content-center d-flex gap-3 my-3 pb-5">
+                <div class="card" style="width: 18rem;">
+                    <img src="img/phishing.png" class="card-img-top detalle" alt="imagen phishing" id="amenaza-0"
+                        data-index="0">
+                    <div class="card-body">
+                        <p class="card-text parrafos" data-index="0">Phishing</p>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="img/ramsomware.png" class="card-img-top detalle" alt="imagen Ransomware" id="amenaza-1"
+                        data-index="1">
+                    <div class="card-body">
+                        <p class="card-text parrafos" data-index="1" id="p-a-1">Ransomware</p>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="img/malware.png" class="card-img-top detalle" id="amenaza-2" data-index="2"
+                        alt="imagen malware">
+                    <div class="card-body">
+                        <p class="card-text parrafos">Malware</p>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="img/ddos.png" class="card-img-top detalle" alt="imagen ddos" id="amenaza-3"
+                        data-index="3">
+                    <div class="card-body">
+                        <p class="card-text parrafos">Ataques DDoS</p>
+                    </div>
+                </div>
 
+            </div>
+            <div class="modal">
+                <span class="close">x</span>
+                <div class="card tarjeta-modal" style="width: 18rem;">
+                    <img src="img/ddos.png" class="card-img-top image-modal" alt="imagen modal">
+                    <div class="card-body">
+                        <p class="card-text parrafo-modal"></p>
+                    </div>
+                </div>
+                <div class="modal-nav m-auto">
+                    <button id="prev">
+                        < Anterior</button>
+                            <button id="next">Siguiente ></button>
+                </div>
+            </div>
+        </div>
 
     </main>
 
