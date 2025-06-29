@@ -62,3 +62,19 @@ a {
     margin-top: 20px;
 }
 
+li {
+    padding-bottom: 1rem;
+}
+
+.respuesta {
+    margin-top: 5px;
+    font-size: 0.9em;
+}
+
+.correcta {
+    color: green;
+}
+
+.incorrecta {
+    color: red;
+}

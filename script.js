@@ -46,3 +46,93 @@ $(".modal").click(function(event){
         $(this).fadeOut();
     }
 });
+
+//Inicio popovers
+const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+
+ $(document).ready(function () {
+      $('#formularioContacto').on('submit', function (e) {
+        e.preventDefault(); // Evitar envío por defecto
+
+        // Limpiar errores previos
+        $('.error').text('');
+        $('#resultado').addClass('d-none');
+
+        let esValido = true;
+
+        const nombre = $('#nombre').val().trim();
+        const correo = $('#correo').val().trim();
+        const mensaje = $('#mensaje').val().trim();
+
+        const regexCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (nombre === '') {
+          $('#error-nombre').text('Por favor, ingresa tu nombre.');
+          esValido = false;
+        }
+
+        if (correo === '') {
+          $('#error-correo').text('Por favor, ingresa tu correo.');
+          esValido = false;
+        } else if (!regexCorreo.test(correo)) {
+          $('#error-correo').text('Por favor, ingresa un correo válido.');
+          esValido = false;
+        }
+
+        if (mensaje === '') {
+          $('#error-mensaje').text('Por favor, escribe un mensaje.');
+          esValido = false;
+        }
+
+        if (esValido) {
+          $('#resultado')
+            .removeClass('d-none alert-danger')
+            .addClass('alert-success')
+            .text('Gracias por tu consulta. Nos pondremos en contacto contigo pronto.');
+
+          $('#formularioContacto')[0].reset();
+        }
+      });
+    });
+
+    $(document).ready(function () {
+
+      $('#verificarBtn').on('click', function () {
+
+        // Obtener respuestas seleccionadas
+        const respuesta1 = $('input[name="pregunta1"]:checked').val();
+        const respuesta2 = $('input[name="pregunta2"]:checked').val();
+
+        // Limpiar resultados anteriores
+        $('#resultado1').text('').removeClass('correcta incorrecta');
+        $('#resultado2').text('').removeClass('correcta incorrecta');
+        $('#mensajeFinal').addClass('d-none');
+
+        let todasCorrectas = true;
+
+        // Verificar pregunta 1
+        if (respuesta1 === 'a') {
+          $('#resultado1').text('✅ Correcta').addClass('correcta');
+        } else {
+          $('#resultado1').text('❌ Incorrecta').addClass('incorrecta');
+          todasCorrectas = false;
+        }
+
+        // Verificar pregunta 2
+        if (respuesta2 === 'b') {
+          $('#resultado2').text('✅ Correcta').addClass('correcta');
+        } else {
+          $('#resultado2').text('❌ Incorrecta').addClass('incorrecta');
+          todasCorrectas = false;
+        }
+
+        // Mostrar mensaje final si ambas son correctas
+        if (todasCorrectas) {
+          $('#mensajeFinal')
+            .removeClass('d-none alert-danger alert-success')
+            .addClass('alert alert-success')
+            .text('🎉 ¡Felicidades! Has respondido correctamente a todas las preguntas.');
+        }
+      });
+    });
